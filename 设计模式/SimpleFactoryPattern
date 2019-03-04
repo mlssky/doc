@@ -1,0 +1,14 @@
+
+图说设计模式=====
+http://design-patterns.readthedocs.io/zh_CN/latest/index.html#
+
+1:简单工厂
+   #eg KeyGenerator
+  简单工厂方法
+  抽象工厂
+
+2.
+
+  eg：Integer
+
+#http://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/simple_factory.html

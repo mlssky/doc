@@ -1,0 +1,30 @@
+
+
+1.maven 签名配置
+https://blog.csdn.net/lfzxs/article/details/51513461
+ a.生成签名文件，可以下载GPG工具（https://gpgtools.org/）进行生成,然后在build.gradle添加相关内容
+ b.根目录下新建一个gradle.properties文件,添加如下内容：
+    signing.keyId=24875D73
+    signing.password=secret
+    signing.secretKeyRingFile=/Users/me/.gnupg/secring.gpg
+
+
+    /Users/mengliwei/.gnupg
+
+2.使用命令方式上传
+   单独上传有一个好处就是可以只上传现有的jar包或者aar包，无需工程及时编译重新打包。
+   有时候这个包是第三方提供的，如果可以通过maven管理起来。
+   2.1、安装Maven客户端
+   2.2、配置 maven上传脚本
+       在conf/settings.xml文件里，编辑上服务器的账号、密码信息，另外还有一个id，对应上传脚本中的-DrepositoryId字段。
+       示例：
+    配置服务器的表示id
+    <server>
+        <id>nexus-snapshots</id>
+        <username>账号</username>
+        <password>密码</password>
+    </server>
+    2.3、利用maven命令，上传指定文件
+         命令参考格式：
+     mvn deploy:deploy-file -e -Dfile=F:\a.aar -DgroupId=your group id -DartifactId=your artifact id -Dversion=0.0.1-SNAPSHOT -Durl=http://xxx/maven-snapshots/ -Dpackaging=aar -DrepositoryId=服务器的表示id
+
